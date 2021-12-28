@@ -17,16 +17,20 @@ public class Car {
 	@Column(name = "cname")
 	private String cname;
 
+	@Column(name = "ctype")
+	private String ctype;
+
 	@Column(name = "availability")
 	private String availability;
 
 	public Car() {
 	}
 
-	public Car(int cid, String cname, String availability) {
+	public Car(int cid, String cname, String ctype, String availability) {
 		super();
 		this.cid = cid;
 		this.cname = cname;
+		this.ctype = ctype;
 		this.availability = availability;
 	}
 
@@ -46,6 +50,14 @@ public class Car {
 		this.cname = cname;
 	}
 
+	public String getCtype() {
+		return ctype;
+	}
+
+	public void setCtype(String ctype) {
+		this.ctype = ctype;
+	}
+
 	public String getAvailability() {
 		return availability;
 	}
@@ -56,7 +68,7 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [cid=" + cid + ", cname=" + cname + ", availability=" + availability + "]";
+		return "Car [cid=" + cid + ", cname=" + cname + ", ctype=" + ctype + ", availability=" + availability + "]";
 	}
 
 }
