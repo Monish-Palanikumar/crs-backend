@@ -18,8 +18,8 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 	public List<Car> getAllCars();
 
 	@Modifying
-	@Query(value = "insert into car (cname) values (?1)", nativeQuery = true)
-	public int insertCar(String cname);
+	@Query(value = "insert into car (cname,ctype) values (?1,?2)", nativeQuery = true)
+	public int insertCar(String cname, String ctype);
 
 	@Query(value = "select * from car where cname=?1", nativeQuery = true)
 	public Car selectCarByName(String cname);

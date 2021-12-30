@@ -17,8 +17,8 @@ public class CarService {
 		return carRepository.getAllCars();
 	}
 
-	public int insertCar(String car) {
-		return carRepository.insertCar(car);
+	public int insertCar(String car, String type) {
+		return carRepository.insertCar(car, type);
 	}
 
 	public Car selectCarByName(String name) {

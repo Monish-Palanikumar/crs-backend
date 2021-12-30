@@ -24,8 +24,8 @@ public class CarController {
 	}
 
 	@GetMapping("/car/add")
-	public int insertCar(@RequestParam("cname") String name) {
-		return carService.insertCar(name);
+	public int insertCar(@RequestParam("cname") String name, @RequestParam("ctype") String type) {
+		return carService.insertCar(name, type);
 	}
 
 	@GetMapping("/car/getByName")
