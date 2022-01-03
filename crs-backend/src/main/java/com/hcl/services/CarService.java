@@ -30,7 +30,8 @@ public class CarService {
 	}
 
 	public int updateCar(String cname1, String cname2) {
-		return carRepository.updateCar(cname1, cname2);
+		Car c = selectCarByName(cname1);
+		return carRepository.updateCar(c.getCid(), cname2);
 	}
 
 	public int deleteCar(String cname) {

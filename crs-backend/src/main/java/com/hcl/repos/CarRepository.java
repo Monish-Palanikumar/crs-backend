@@ -28,8 +28,8 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 	public Car selectCarById(Integer cid);
 
 	@Modifying
-	@Query(value = "update car set cname=?1 where cname=?2", nativeQuery = true)
-	public int updateCar(String cname1, String cname2);
+	@Query(value = "update car set cname=?2 where cid=?1", nativeQuery = true)
+	public int updateCar(Integer cid, String cname2);
 
 	@Modifying
 	@Query(value = "delete from car where cname=?", nativeQuery = true)
