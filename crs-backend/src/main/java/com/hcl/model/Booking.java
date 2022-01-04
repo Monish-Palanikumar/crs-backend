@@ -16,8 +16,8 @@ public class Booking {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bid;
 
-	@Column(name = "cid")
-	private Integer cid;
+	@Column(name = "uname")
+	private String uname;
 
 	@Column(name = "cname")
 	private String cname;
@@ -41,11 +41,11 @@ public class Booking {
 		super();
 	}
 
-	public Booking(int bid, Integer cid, String cname, String ctype, Date start, Date end, Integer quantity,
+	public Booking(int bid, String uname, String cname, String ctype, Date start, Date end, Integer quantity,
 			String status) {
 		super();
 		this.bid = bid;
-		this.cid = cid;
+		this.uname = uname;
 		this.cname = cname;
 		this.ctype = ctype;
 		this.start = start;
@@ -60,14 +60,6 @@ public class Booking {
 
 	public void setBid(int bid) {
 		this.bid = bid;
-	}
-
-	public Integer getCid() {
-		return cid;
-	}
-
-	public void setCid(Integer cid) {
-		this.cid = cid;
 	}
 
 	public String getCname() {
@@ -118,9 +110,17 @@ public class Booking {
 		this.status = status;
 	}
 
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
 	@Override
 	public String toString() {
-		return "Booking [bid=" + bid + ", cid=" + cid + ", cname=" + cname + ", ctype=" + ctype + ", start=" + start
+		return "Booking [bid=" + bid + ", uname=" + uname + ", cname=" + cname + ", ctype=" + ctype + ", start=" + start
 				+ ", end=" + end + ", quantity=" + quantity + ", status=" + status + "]";
 	}
 

@@ -14,4 +14,8 @@ public class UserService {
 	public User getUser(String uname, String pwd) {
 		return userRepository.getUser(uname, pwd);
 	}
+
+	public User getUsername(String uname) {
+		return userRepository.getUsername(uname);
+	}
 }

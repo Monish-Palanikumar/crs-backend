@@ -5,8 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hcl.model.Booking;
 import com.hcl.services.BookingService;
+import com.hcl.services.UserService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -24,6 +23,9 @@ public class BookingController {
 
 	@Autowired
 	BookingService bookingService;
+
+	@Autowired
+	UserService userService;
 
 	@GetMapping("/booking/getAllBookings")
 	public List<Booking> getAllCars() {
@@ -47,9 +49,8 @@ public class BookingController {
 	}
 
 	@PostMapping("/booking/insert")
-	public int insertBooking(@RequestBody Booking booking, HttpSession session) {
-		Integer cid = (Integer) session.getAttribute("crs_login_id");
-		return bookingService.insertBooking(cid, booking.getCname(), booking.getCtype(), booking.getStart(),
-				booking.getEnd(), booking.getQuantity());
+	public int insertBooking(@RequestBody Booking booking) {
+		return bookingService.insertBooking(booking.getUname(), booking.getCname(), booking.getCtype(),
+				booking.getStart(), booking.getEnd(), booking.getQuantity());
 	}
 }

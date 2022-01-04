@@ -26,14 +26,13 @@ public class HomeController {
 	}
 
 	@PostMapping("/login")
-	public Integer getUser(@RequestBody User user, HttpSession session) {
+	public Integer getUser(@RequestBody User user) {
 		String uname = user.getUname();
 		String pwd = user.getPwd();
 		User resultSet = userService.getUser(uname, pwd);
 		if (resultSet == null) {
 			return 0;
 		} else {
-			session.setAttribute("crs_login_id", resultSet.getUid());
 			return resultSet.getRole();
 		}
 //		0->error, 1->owner, 2->customer

@@ -30,7 +30,7 @@ public class BookingService {
 		return bookingRepository.updateStatus(status, bid);
 	}
 
-	public int insertBooking(Integer cid, String cname, String ctype, Date start, Date end, Integer quantity) {
-		return bookingRepository.insertBooking(cid, cname, ctype, start, end, quantity);
+	public int insertBooking(String uname, String cname, String ctype, Date start, Date end, Integer quantity) {
+		return bookingRepository.insertBooking(uname, cname, ctype, start, end, quantity);
 	}
 }
