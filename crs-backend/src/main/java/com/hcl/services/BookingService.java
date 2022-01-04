@@ -18,12 +18,16 @@ public class BookingService {
 		return bookingRepository.getAllBookings();
 	}
 
-	public Booking selectBookingByType(String ctype) {
+	public List<Booking> selectBookingByType(String ctype) {
 		return bookingRepository.selectBookingByType(ctype);
 	}
 
-	public Booking selectBookingByDate(Date start) {
+	public List<Booking> selectBookingByDate(Date start) {
 		return bookingRepository.selectBookingByDate(start);
+	}
+
+	public List<Booking> selectBookingByUname(String uname) {
+		return bookingRepository.selectBookingByUname(uname);
 	}
 
 	public int updateStatus(String status, Integer bid) {

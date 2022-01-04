@@ -19,10 +19,13 @@ public interface BookingRepository extends JpaRepository<Booking, Integer> {
 	public List<Booking> getAllBookings();
 
 	@Query(value = "select * from booking where ctype=?1", nativeQuery = true)
-	public Booking selectBookingByType(String ctype);
+	public List<Booking> selectBookingByType(String ctype);
+
+	@Query(value = "select * from booking where uname=?1", nativeQuery = true)
+	public List<Booking> selectBookingByUname(String uname);
 
 	@Query(value = "select * from booking where start=?1", nativeQuery = true)
-	public Booking selectBookingByDate(Date start);
+	public List<Booking> selectBookingByDate(Date start);
 
 	@Modifying
 	@Query(value = "update booking set status=?1 where bid=?2", nativeQuery = true)

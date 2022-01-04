@@ -33,12 +33,17 @@ public class BookingController {
 	}
 
 	@GetMapping("/booking/getBookingByType")
-	public Booking selectBookingByType(@RequestParam("ctype") String ctype) {
+	public List<Booking> selectBookingByType(@RequestParam("ctype") String ctype) {
 		return bookingService.selectBookingByType(ctype);
 	}
 
+	@GetMapping("/booking/getBookingByUname")
+	public List<Booking> selectBookingByUname(@RequestParam("uname") String uname) {
+		return bookingService.selectBookingByUname(uname);
+	}
+
 	@GetMapping("/booking/getBookingByDate")
-	public Booking selectBookingByDate(@RequestParam("date") String start) throws ParseException {
+	public List<Booking> selectBookingByDate(@RequestParam("date") String start) throws ParseException {
 		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(start);
 		return bookingService.selectBookingByDate(date);
 	}
