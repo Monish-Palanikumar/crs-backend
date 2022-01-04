@@ -1,5 +1,8 @@
 package com.hcl.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,15 +26,22 @@ public class HomeController {
 	}
 
 	@PostMapping("/login")
-	public Integer getUser(@RequestBody User user) {
+	public Integer getUser(@RequestBody User user, HttpSession session) {
 		String uname = user.getUname();
 		String pwd = user.getPwd();
 		User resultSet = userService.getUser(uname, pwd);
 		if (resultSet == null) {
 			return 0;
 		} else {
+			session.setAttribute("crs_login_id", resultSet.getUid());
 			return resultSet.getRole();
 		}
 //		0->error, 1->owner, 2->customer
+	}
+
+	@GetMapping("/logout")
+	public void logout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
 	}
 }

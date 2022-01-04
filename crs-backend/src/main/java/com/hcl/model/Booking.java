@@ -19,6 +19,9 @@ public class Booking {
 	@Column(name = "cid")
 	private Integer cid;
 
+	@Column(name = "cname")
+	private String cname;
+
 	@Column(name = "ctype")
 	private String ctype;
 
@@ -38,10 +41,12 @@ public class Booking {
 		super();
 	}
 
-	public Booking(int bid, Integer cid, String ctype, Date start, Date end, Integer quantity, String status) {
+	public Booking(int bid, Integer cid, String cname, String ctype, Date start, Date end, Integer quantity,
+			String status) {
 		super();
 		this.bid = bid;
 		this.cid = cid;
+		this.cname = cname;
 		this.ctype = ctype;
 		this.start = start;
 		this.end = end;
@@ -63,6 +68,14 @@ public class Booking {
 
 	public void setCid(Integer cid) {
 		this.cid = cid;
+	}
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
 
 	public String getCtype() {
@@ -107,8 +120,8 @@ public class Booking {
 
 	@Override
 	public String toString() {
-		return "Booking [bid=" + bid + ", cid=" + cid + ", ctype=" + ctype + ", start=" + start + ", end=" + end
-				+ ", quantity=" + quantity + ", status=" + status + "]";
+		return "Booking [bid=" + bid + ", cid=" + cid + ", cname=" + cname + ", ctype=" + ctype + ", start=" + start
+				+ ", end=" + end + ", quantity=" + quantity + ", status=" + status + "]";
 	}
 
 }
