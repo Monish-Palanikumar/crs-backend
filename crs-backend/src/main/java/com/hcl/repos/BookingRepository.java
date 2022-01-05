@@ -28,7 +28,7 @@ public interface BookingRepository extends JpaRepository<Booking, Integer> {
 	public List<Booking> selectBookingByDate(Date start);
 
 	@Modifying
-	@Query(value = "update booking set status=?1 and comments=?2 where bid=?3", nativeQuery = true)
+	@Query(value = "update booking set status1=?1, comments=?2 where bid=?3", nativeQuery = true)
 	public int updateStatus(String status, String comments, Integer bid);
 
 	@Modifying

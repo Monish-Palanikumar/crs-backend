@@ -34,7 +34,7 @@ public class Booking {
 	@Column(name = "quantity")
 	private Integer quantity;
 
-	@Column(name = "status")
+	@Column(name = "status1")
 	private String status;
 
 	@Column(name = "comments")
