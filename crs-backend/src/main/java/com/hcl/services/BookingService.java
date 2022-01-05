@@ -30,8 +30,8 @@ public class BookingService {
 		return bookingRepository.selectBookingByUname(uname);
 	}
 
-	public int updateStatus(String status, Integer bid) {
-		return bookingRepository.updateStatus(status, bid);
+	public int updateStatus(String status, String comments, Integer bid) {
+		return bookingRepository.updateStatus(status, comments, bid);
 	}
 
 	public int insertBooking(String uname, String cname, String ctype, Date start, Date end, Integer quantity) {

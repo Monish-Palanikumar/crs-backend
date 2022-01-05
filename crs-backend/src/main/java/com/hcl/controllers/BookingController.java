@@ -49,8 +49,9 @@ public class BookingController {
 	}
 
 	@GetMapping("/booking/updateStatus")
-	public int updateStatus(@RequestParam("status") String status, @RequestParam("bid") Integer bid) {
-		return bookingService.updateStatus(status, bid);
+	public int updateStatus(@RequestParam("status") String status, @RequestParam("comments") String comments,
+			@RequestParam("bid") Integer bid) {
+		return bookingService.updateStatus(status, comments, bid);
 	}
 
 	@PostMapping("/booking/insert")

@@ -37,12 +37,15 @@ public class Booking {
 	@Column(name = "status")
 	private String status;
 
+	@Column(name = "comments")
+	private String comments;
+
 	public Booking() {
 		super();
 	}
 
 	public Booking(int bid, String uname, String cname, String ctype, Date start, Date end, Integer quantity,
-			String status) {
+			String status, String comments) {
 		super();
 		this.bid = bid;
 		this.uname = uname;
@@ -52,6 +55,7 @@ public class Booking {
 		this.end = end;
 		this.quantity = quantity;
 		this.status = status;
+		this.comments = comments;
 	}
 
 	public int getBid() {
@@ -118,10 +122,18 @@ public class Booking {
 		this.uname = uname;
 	}
 
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
 	@Override
 	public String toString() {
 		return "Booking [bid=" + bid + ", uname=" + uname + ", cname=" + cname + ", ctype=" + ctype + ", start=" + start
-				+ ", end=" + end + ", quantity=" + quantity + ", status=" + status + "]";
+				+ ", end=" + end + ", quantity=" + quantity + ", status=" + status + ", comments=" + comments + "]";
 	}
 
 }

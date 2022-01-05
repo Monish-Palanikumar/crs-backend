@@ -28,8 +28,8 @@ public interface BookingRepository extends JpaRepository<Booking, Integer> {
 	public List<Booking> selectBookingByDate(Date start);
 
 	@Modifying
-	@Query(value = "update booking set status=?1 where bid=?2", nativeQuery = true)
-	public int updateStatus(String status, Integer bid);
+	@Query(value = "update booking set status=?1 and comments=?2 where bid=?3", nativeQuery = true)
+	public int updateStatus(String status, String comments, Integer bid);
 
 	@Modifying
 	@Query(value = "insert into booking (uname, cname, ctype, start, end, quantity) values (?1,?2,?3,?4,?5,?6)", nativeQuery = true)
